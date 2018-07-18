@@ -1,0 +1,13 @@
+/.idea
+/.vscode
+/vendor
+thinkphp
+.env
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+/public/images
+/config/database.php
+/config/setting.php
