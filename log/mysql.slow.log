@@ -1,0 +1,49 @@
+mysqld, Version: 5.7.22-log (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: (null)
+Time                 Id Command    Argument
+mysqld, Version: 5.7.22-log (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: (null)
+Time                 Id Command    Argument
+mysqld, Version: 5.7.22-log (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: (null)
+Time                 Id Command    Argument
+# Time: 2018-07-18T06:42:25.267043Z
+# User@Host: root[root] @  [172.19.0.3]  Id:     2
+# Query_time: 0.000725  Lock_time: 0.000088 Rows_sent: 0  Rows_examined: 0
+use thinkcmf5;
+SET timestamp=1531896145;
+SHOW COLUMNS FROM `category`;
+mysqld, Version: 5.7.22-log (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: (null)
+Time                 Id Command    Argument
+# Time: 2018-07-18T06:51:56.242634Z
+# User@Host: root[root] @  [172.19.0.3]  Id:     2
+# Query_time: 0.006615  Lock_time: 0.000080 Rows_sent: 6  Rows_examined: 6
+use terran;
+SET timestamp=1531896716;
+SHOW COLUMNS FROM `category`;
+# Time: 2018-07-18T06:51:56.248513Z
+# User@Host: root[root] @  [172.19.0.3]  Id:     2
+# Query_time: 0.003513  Lock_time: 0.000053 Rows_sent: 12  Rows_examined: 12
+SET timestamp=1531896716;
+SHOW COLUMNS FROM `product`;
+# Time: 2018-07-18T06:51:56.249792Z
+# User@Host: root[root] @  [172.19.0.3]  Id:     2
+# Query_time: 0.000331  Lock_time: 0.000029 Rows_sent: 8  Rows_examined: 32
+SET timestamp=1531896716;
+SELECT * FROM `product` WHERE (  `category_id` = 2 ) AND `product`.`delete_time` IS NULL;
+# Time: 2018-07-18T06:51:56.259747Z
+# User@Host: root[root] @  [172.19.0.3]  Id:     2
+# Query_time: 0.000138  Lock_time: 0.000032 Rows_sent: 8  Rows_examined: 32
+SET timestamp=1531896716;
+SELECT * FROM `product` WHERE (  `category_id` = 2 ) AND `product`.`delete_time` IS NULL;
+# Time: 2018-07-18T06:51:56.263351Z
+# User@Host: root[root] @  [172.19.0.3]  Id:     2
+# Query_time: 0.002811  Lock_time: 0.000051 Rows_sent: 5  Rows_examined: 5
+SET timestamp=1531896716;
+SHOW COLUMNS FROM `product_image`;
+# Time: 2018-07-18T06:51:56.263857Z
+# User@Host: root[root] @  [172.19.0.3]  Id:     2
+# Query_time: 0.000117  Lock_time: 0.000023 Rows_sent: 13  Rows_examined: 13
+SET timestamp=1531896716;
+SELECT * FROM `product_image` WHERE (  `product_id` IN (2,5,8,9,10,11,12,26) ) AND `product_image`.`delete_time` IS NULL;

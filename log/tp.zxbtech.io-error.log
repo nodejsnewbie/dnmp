@@ -1,0 +1,1 @@
+2018/07/18 06:39:41 [error] 5#5: *1 rewrite or internal redirection cycle while processing "/index.php//index.php//index.php//index.php//index.php//index.php//index.php//index.php//index.php//index.php//index.php//api/v1/category/2", client: 172.18.0.1, server: tp.zxbtech.io, request: "GET /api/v1/category/2 HTTP/1.1", host: "tp.zxbtech.io"
