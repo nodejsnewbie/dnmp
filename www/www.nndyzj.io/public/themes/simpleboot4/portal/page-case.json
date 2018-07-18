@@ -1,0 +1,8 @@
+{
+    "name": "服务介绍",
+    "action": "portal/Page/index",
+    "description": "服务介绍模板文件",
+    "order": 10.0,
+    "more": {
+        }
+}

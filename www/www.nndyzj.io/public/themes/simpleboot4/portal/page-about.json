@@ -1,0 +1,65 @@
+{
+    "name": "单页面",
+    "action": "portal/Page/index",
+    "description": "单页面模板文件",
+    "order": 10.0,
+    "more": {
+        "vars": {
+            "top_slide": {
+                "title": "顶部幻灯片",
+                "value": "",
+                "type": "text",
+                "dataSource": {
+                    "api": "admin/Slide/index",
+                    "multi": false
+                },
+                "placeholder": "请选择顶部幻灯片",
+                "tip": "顶部幻灯片",
+                "rule": {
+                    "require": true
+                }
+            }
+        },
+        "widgets": {
+            "features": {
+                "title": "公司介绍",
+                "display": "1",
+                "vars": {
+                    "sub_title": {
+                        "title": "副标题",
+                        "value": "Companies introduce",
+                        "type": "text",
+                        "placeholder": "请输入副标题",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    },
+                    "features": {
+                        "title": "公司介绍",
+                        "value": [
+                            {
+                                "content": ""
+                            },
+                            {
+                                "content": ""
+                            },
+                            {
+                                "content": ""
+                            }
+                        ],
+                        "type": "array",
+                        "item": {
+                            "content": {
+                                "title": "描述",
+                                "value": "",
+                                "type": "textarea"
+                            }
+                        },
+                        "tip": ""
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,77 @@
+{
+    "name": "联系我们页",
+    "action": "portal/Page/index",
+    "description": "联系我们页模板文件",
+    "order": 10.0,
+    "more": {
+        "vars": {
+            "top_slide": {
+                "title": "顶部幻灯片",
+                "value": "",
+                "type": "text",
+                "dataSource": {
+                    "api": "admin/Slide/index",
+                    "multi": false
+                },
+                "placeholder": "请选择顶部幻灯片",
+                "tip": "顶部幻灯片",
+                "rule": {
+                    "require": true
+                }
+            },
+            "baidu_map_info_window_text": {
+                "title": "百度地图标注文字",
+                "name": "baidu_map_info_window_text",
+                "value": "豆芽之家<br/><span class=''>地址：厢竹大道5号丰泽SOHO大厦1楼109商铺</span>",
+                "type": "text",
+                "tip": "百度地图标注文字,支持简单html代码",
+                "rule": []
+            },
+            "qq_cn": {
+                "title": "客服QQ",
+                "value": "",
+                "type": "text",
+                "tip": "",
+                "rule": {
+                    "require": true
+                }
+            },
+            "company_location": {
+                "title": "公司坐标",
+                "value": "",
+                "type": "location",
+                "tip": "",
+                "rule": {
+                    "require": true
+                }
+            },
+            "address_cn": {
+                "title": "公司地址",
+                "value": " ",
+                "type": "text",
+                "tip": "",
+                "rule": {
+                    "require": true
+                }
+            },
+            "email": {
+                "title": "公司邮箱",
+                "value": "catman@thinkcmf.com",
+                "type": "text",
+                "tip": "",
+                "rule": {
+                    "require": true
+                }
+            },
+            "phone_cn": {
+                "title": "公司电话",
+                "value": "021 1000 0001",
+                "type": "text",
+                "tip": "",
+                "rule": {
+                    "require": true
+                }
+            }
+        }
+    }
+}

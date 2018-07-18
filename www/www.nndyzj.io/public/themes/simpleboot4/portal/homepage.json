@@ -1,0 +1,9 @@
+{
+    "name": "单页面",
+    "action": "portal/Page/index",
+    "description": "主页面模板文件",
+    "order": 10.0,
+    "more": {
+       
+    }
+}

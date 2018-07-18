@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{$page.post_title}</title>
+    <meta name="keywords" content="{$page.post_keywords}" />
+    <meta name="description" content="{$page.post_excerpt}">
+    <include file="public@head" />
+    <style>
+        section#about_us .container .row p{
+            overflow: hidden;
+            float: left;
+        }
+        .container{
+            overflow: hidden;
+        }
+    </style>
+    <hook name="before_head_end" />
+</head>
+
+<body class="body-white">
+    <include file="public@nav" />
+    <div id="about_banner">
+        <ul id="home-slider" class="page_banner">
+            <php>
+                $top_slide_id=empty($theme_vars['top_slide'])?1:$theme_vars['top_slide'];
+            </php>
+            <slides id="$top_slide_id">
+                <li>
+                    <a href="{$vo.url|default=''}">
+                        <img src="{:cmf_get_image_url($vo.image)}" alt="">
+                    </a>
+                </li>
+            </slides>
+        </ul>
+    </div>
+    <!-- 公司介绍 -->
+        <div class="container body-white">
+            <iframe src="/about-company.html"  name="iframe1" onload="this.height=this.contentWindow.document.body.scrollHeight" scrolling="no" frameborder="0" width="100%"></iframe>
+        </div>
+        <hr>
+    <!-- 企业文化 -->
+        <div class="container body-white">
+            <iframe src="/about-enterprise.html"  name="iframe1" onload="this.height=this.contentWindow.document.body.scrollHeight" scrolling="no" frameborder="0" width="100%"></iframe>
+        </div>
+        <hr>
+    <!--员工风采 -->
+        <div class="container body-white">
+            <iframe src="/about-staff.html" name="iframe1" onload="this.height=this.contentWindow.document.body.scrollHeight" scrolling="no" frameborder="0" width="100%"></iframe>
+        </div>
+<script>
+    
+        var iframes = document.getElementsByTagName('iframe');
+        for (var i = 0, j = iframes.length; i < j; ++i) {
+            (function (_i) {
+                iframes[_i].onload = function () {
+                    this.contentWindow.onbeforeunload = function () {
+                        iframes[_i].style.visibility = 'hidden';
+                        // iframes[_i].style.display = 'none';
+
+                        iframes[_i].setAttribute('height', 'auto');
+                    };
+
+                    this.setAttribute('height', this.contentWindow.document.body.scrollHeight);
+
+                    this.style.visibility = 'visible';
+                    // this.style.display = 'block';
+                };
+            })(i);
+        }
+    
+</script>
+
+    <section id="foot">
+        <include file="public@footer" />
+    </section>
+    <include file="public@scripts" />
+    <hook name="before_body_end" />
+</body>
+
+</html>

@@ -1,3 +1,0 @@
-172.18.0.1 - - [18/Jul/2018:06:39:41 +0000] "GET /api/v1/category/2 HTTP/1.1" 500 193 "-" "PostmanRuntime/7.1.5"
-172.18.0.1 - - [18/Jul/2018:06:42:25 +0000] "GET /api/v1/category/2 HTTP/1.1" 500 36111 "-" "PostmanRuntime/7.1.5"
-172.18.0.1 - - [18/Jul/2018:06:51:56 +0000] "GET /api/v1/category/2 HTTP/1.1" 200 1644 "-" "PostmanRuntime/7.1.5"

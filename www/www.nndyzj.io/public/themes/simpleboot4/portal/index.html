@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{$site_info.site_name|default=''}</title>
+    <meta name="keywords" content="{$site_info.site_seo_keywords|default=''}" />
+    <meta name="description" content="{$site_info.site_seo_description|default=''}">
+    <include file="public@head" />
+    <link href="__TMPL__/public/assets/css/slippry/slippry.css" rel="stylesheet">
+    <style>
+        .caption-wraper {
+            position: absolute;
+            left: 50%;
+            bottom: 2em;
+        }
+        .margin-top{
+            margin-top: 50px !important;
+        }
+        section#aboutus .container .row .col-md-1 h1{
+            margin: 5px 0;
+        }
+        section#aboutus .container .row .col-md-1 h5{
+            margin-top: 50px;
+            margin-bottom: 125px;
+            line-height: 1.8em;
+            text-indent: 2em;
+        }
+         section#aboutus .container .row .col-md-1 img{
+           width: 100%;
+           height: 100%;
+        }
+        section#aboutus .container .row .col-md-1 p{
+            font-size: 16px;
+            margin: 0;
+            color: #666
+        }
+         section#aboutus .container .row .btn-primary{
+            background: #FF9800;
+            border-color: #FF9800;
+            border-radius: 5em;
+            box-shadow: 0 20px 40px -10px #f2e6c2;
+            transition: .2s;
+            padding: 10px 26px;
+            font-size: 18px;
+        }
+        section#aboutus .container .row .btn-primary i{
+            margin-left: 40px;
+        }
+
+        section#service .container .row .btn-primary{
+            border: #FF9800 1px solid;
+            color: #ff9800;
+            background: transparent;
+            border-radius: 5em;
+            transition: .2s;
+            padding: 10px 13px;
+            margin: 10px 0;
+        }
+        section#service .container .row .btn-primary:hover{
+            border: #FF9800 1px solid;
+            color: #fff;
+            background: #FF9800;
+            -webkit-box-shadow: 0 10px 20px 0 rgba(37,39,95,0.1);
+            -moz-box-shadow: 0 10px 20px 0 rgba(37,39,95,0.1);
+            box-shadow: 0 10px 20px 0 rgba(37,39,95,0.1); 
+        } 
+        .caption-wraper .caption {
+            position: relative;
+            left: -50%;
+            background-color: rgba(0, 0, 0, 0.54);
+            padding: 0.4em 1em;
+            color: #fff;
+            -webkit-border-radius: 1.2em;
+            -moz-border-radius: 1.2em;
+            -ms-border-radius: 1.2em;
+            -o-border-radius: 1.2em;
+            border-radius: 1.2em;
+        }
+
+        .tc-gridbox {
+            margin: 0;
+            border-radius: 6px;
+        }
+
+        @media (max-width: 768px) {
+            .caption-wraper {
+                left: 0;
+                bottom: 0.4em;
+            }
+            .caption-wraper .caption {
+                left: 0;
+                padding: 0.2em 0.4em;
+                font-size: 0.92em;
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                -ms-border-radius: 0;
+                -o-border-radius: 0;
+                border-radius: 0;
+            }
+            section#aboutus .container .row .col-md-1 h5{
+            margin-top: 25px;
+            margin-bottom: 50px;
+            line-height: 1.5em;
+            }
+            section#aboutus .container .row .col-md-1#img-dyzj{
+            display: none;
+        }
+        }
+    </style>
+    <hook name="before_head_end" />
+</head>
+
+<body class="body-white">
+    <include file="public@nav" />
+
+<ul id="home-slider" class="list-unstyled">
+    <php>
+        $top_slide_id=empty($theme_vars['top_slide'])?1:$theme_vars['top_slide'];
+    </php>
+    <slides id="$top_slide_id">
+        <li>
+            <div class="caption-wraper">
+                <div class="caption">{$vo.title|default=''}</div>
+            </div>
+            <a href="{$vo.url|default=''}">
+                <img src="{:cmf_get_image_url($vo.image)}" alt="">
+            </a>
+        </li>
+    </slides>
+    <noslides id="$top_slide_id">
+        <li>
+            <div class="caption-wraper">
+                <div class="caption">此幻灯片只是演示,您没有设置任何幻灯片,请到后台模板设置！</div>
+            </div>
+            <a href="">
+                <img src="__TMPL__/public/assets/images/demo/1.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <div class="caption-wraper">
+                <div class="caption">此幻灯片只是演示,您没有设置任何幻灯片,请到后台模板设置！</div>
+            </div>
+            <a href="">
+                <img src="__TMPL__/public/assets/images/demo/2.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <div class="caption-wraper">
+                <div class="caption">此幻灯片只是演示,您没有设置任何幻灯片,请到后台模板设置！</div>
+            </div>
+            <a href="">
+                <img src="__TMPL__/public/assets/images/demo/3.jpg" alt="">
+            </a>
+        </li>
+    </noslides>
+</ul>
+    <!-- 关于我们 -->
+    <section id="aboutus">
+            <div class="container">
+                    <div class="row">
+                        <div class="col-md-1" id="img-dyzj">
+                            <img src="__TMPL__/public/assets/images/dyzj.png">
+                        </div>
+                        <div class="col-md-1" id="content-dyzj" style="text-align: left;">
+                            <p >About us</p>
+                            <h1 class="font-large nospace">关于我们</h1>
+                            <h5>广西南宁豆芽之家生活服务有限公司，是一家专业从事家电维修、家政保洁、家居装修等业
+                                务的服务公司，承接格力、志高、奥克斯等多家知名品牌售后服务工作，设施齐全、管理科学。
+                                公司现拥有一支经验丰富的管理团队和一整套完善的工作体系、管理制度、质量监督体系、现
+                                代企业管理模式，秉承“勤奋、务实、敬业、创新”的经营管理理念，以用户需求为核心，为广大
+                                用户提供快速、高质量的服务，满足了市场需求。</h5>
+                            <a class="btn btn-primary" href="../About-us.html">查看更多<i class="fa fa-long-arrow-right"></i></a>
+                        </div>
+                    </div>
+            </div>
+    </section>
+    <hr>
+    <!-- 主营业务 -->
+    <section id="service">
+        <div class="container">
+            <widget name="features">
+                <div class="section-heading">
+                    <h1 class="text-center">{$widget.title}</h1>
+                    <h2 class="text-center-border"></h2>
+                    <h3 class="text-center text-color">Main business</h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="se-cont"><img src="__TMPL__/public/assets/images/jdwx.png"></div>
+                        <div class="cont">
+                        <h2 class="font-large nospace">家电维修</h2>
+                        <p>价格透明，质量保证，不成交不收取任何费用</p>
+                        <a class="btn btn-primary" href="/portal/page/index/id/35.html">
+                            <i class="fa fa-long-arrow-right"></i>
+                        </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="se-cont">
+                            <img src="__TMPL__/public/assets/images/jdqx.png">
+                        </div>
+                        <div class="cont">
+                            <h2 class="font-large nospace">家电清洗</h2>
+                            <p>建议每年交由专业人员清洗一次</p>
+                            <a class="btn btn-primary" href="/portal/page/index/id/37.html">
+                                <i class="fa fa-long-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="se-cont">
+                            <img src="__TMPL__/public/assets/images/jzbj.png">
+                        </div>
+                        <div class="cont">
+                            <h2 class="font-large nospace">家政保洁</h2>
+                            <p>家务有我，你去做你想做的事</p>
+                            <a class="btn btn-primary" href="/portal/page/index/id/36.html">
+                                <i class="fa fa-long-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="se-cont">
+                            <img src="__TMPL__/public/assets/images/jtzx.png">
+                        </div>
+                        <div class="cont">
+                            <h2 class="font-large nospace">家庭装修</h2>
+                            <p>包设计，包施工，包主材，包售后</p>
+                            <a class="btn btn-primary" href="/portal/page/index/id/38.html">
+                                <i class="fa fa-long-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="se-cont">
+                            <img src="__TMPL__/public/assets/images/kqzl.png">
+                        </div>
+                        <div class="cont">
+                            <h2 class="font-large nospace">空气治理</h2>
+                            <p>即将上线</p>
+                            <a class="btn btn-primary" href="/Service-intro.html">
+                                <i class="fa fa-long-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="se-cont">
+                            <img src="__TMPL__/public/assets/images/xshs.png">
+                        </div>
+                        <div class="cont">
+                            <h2 class="font-large nospace">修锁换锁</h2>
+                            <p>即将上线</p>
+                            <a class="btn btn-primary" href="/Service-intro.html">
+                                <i class="fa fa-long-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- <php>
+                    $features_count = count($widget['vars']['features']); $rows = ceil($features_count/6);
+                </php>
+                <for start="1" end="$rows" comparison="elt" step="1" name="row">
+                <php>
+                    $first_row = ($row-1)*6; $features = array_slice($widget['vars']['features'],$first_row,6);
+                </php>
+                <div class="row">
+                    <foreach name="features" item="vo">
+                        <div class="col-md-4">
+                        <h5></h5>
+                        <h2 class="font-large nospace">{$vo.title}</h2>
+                        <p>{$vo.content}</p>
+                        <a class="btn btn-primary" href="/Service-intro.html"><i class="fa fa-long-arrow-right"></i></a>
+                    </div>
+                    </foreach>
+                </div>    
+            </for> -->
+            </widget>
+        </div>
+    </section>
+    <hr>
+    <!-- 安全无忧 -->
+    <section id="safety">
+        <div class="container">
+            <div class="section-heading">
+                <h1 class="text-center">安全无忧</h1>
+                <h2 class="text-center-border"></h2>
+                <h3 class="text-center text-color">Safety assurance</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <i class="fa"><img src="__TMPL__/public/assets/images/pzfw.png"></i>
+                    <h2 class="font-large nospace">品质服务</h2>
+                    <p>Quality service</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa"><img src="__TMPL__/public/assets/images/mmbj.png"></i>
+                    <h2 class="font-large nospace">明码标价</h2>
+                    <p>Marked prices</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa">
+                        <img src="__TMPL__/public/assets/images/jssm.png"></i>
+                    <h2 class="font-large nospace">极速上门</h2>
+                    <p>Speedy service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <!-- 服务流程 -->
+    <section id="service_process">
+        <div class="container">
+            <div class="section-heading">
+                <h1 class="text-center">服务流程</h1>
+                <h2 class="text-center-border"></h2>
+                <h3 class="text-center text-color">Service process</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-12 service_process_bg">
+                    <img src="__TMPL__/public/assets/images/fwlc.png">
+                </div>
+                <div class="col-md-11 service_process_bg">
+                    <img src="__TMPL__/public/assets/images/fwlc2.png">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 最新资讯 -->
+    <section id="Company_news">
+        <div class="container">
+        <widget name="last_news">
+            <div class="section-heading">
+                <h1 class="text-center">{$widget.title}</h1>
+                <h2 class="text-center-border"></h2>
+                <h3 class="text-center text-color">Company news</h3>
+            </div>
+            <div class="row">
+                <php>
+                    $widget["vars"]["last_news_category_id"] = empty($widget["vars"]["last_news_category_id"])?1:$widget["vars"]["last_news_category_id"];
+                    $last_news_limit=4;
+                </php>
+                <portal:articles limit="$last_news_limit" order="post.published_time DESC" categoryIds="$widget.vars.last_news_category_id">
+                    <div class="col-md-3">
+                        <div class="tc-gridbox">
+                            <div class="header">
+                                <div class="item-image">
+                                    <a href="{:cmf_url('portal/Article/index',array('id'=>$vo.id,'cid'=>$vo.category_id))}">
+                                        <present name="vo.more.thumbnail">
+                                            <empty name="vo.more.thumbnail">
+                                                <img src="__TMPL__/public/assets/images/default-thumbnail.png" class="img-responsive">
+                                                <else/>
+                                                <img src="{:cmf_get_image_url($vo.more.thumbnail)}" class="img-responsive">
+                                            </empty>
+                                            <else/>
+                                            <img src="__TMPL__/public/assets/images/default-thumbnail.png" class="img-responsive">
+                                        </present>
+                                    </a>
+                                </div>
+                                <h3>
+                                    <a href="{:cmf_url('portal/Article/index',array('id'=>$vo.id,'cid'=>$vo.category_id))}">{$vo.post_title}</a>
+                                </h3>
+                                <hr>
+                            </div>
+                            <div class="body">
+                                <p>
+                                    <a href="{:cmf_url('portal/Article/index',array('id'=>$vo.id,'cid'=>$vo.category_id))}">{$vo.post_excerpt}</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </portal:articles>
+            </div>
+        </widget>
+        </div>
+    </section>
+    <section id="foot">
+        <include file="public@footer" />
+    </section>
+    <!-- /container -->
+    <include file="public@scripts" />
+    <script src="__TMPL__/public/assets/js/slippry.min.js"></script>
+    <script>
+        $(function () {
+            $("#home-slider").slippry({
+                transition: 'fade',
+                useCSS: true,
+                captions: false,
+                speed: 1000,
+                pause: 3000,
+                auto: true,
+                preload: 'visible'
+            });
+            $("#home-slider").show();
+        });
+    </script>
+    <hook name="before_body_end" />
+</body>
+
+</html>

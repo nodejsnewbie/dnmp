@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>联系我们</title>
+    <meta name="keywords" content="{$site_info.site_seo_keywords|default=''}" />
+    <meta name="description" content="{$site_info.site_seo_description|default=''}">
+    <include file="public@head" />
+
+    <script src="//api.map.baidu.com/api?v=1.3"></script>
+
+    <style>
+        img {
+            max-width: none;
+        }
+
+        .row .col-md-6{
+            padding-bottom: 50px
+        }
+
+        #mar-h1,#mar-h2{
+            margin-top:28px;
+        }
+        #mar-h3{
+            margin-bottom: 25px;
+        }
+        #fg-1,#fg-2,#fg-3{
+            float: left;
+            margin-bottom: 5px;
+        }
+
+        #fg-2,#fg-3{
+            margin-left: 10px;
+        }
+        .margin-top{
+            margin-top: 100px;
+        }
+        .btn-primary{
+            background: #ff9800;
+            border-color: #ff9800
+        }
+        .btn-primary:hover,
+        .btn-primary:focus{
+            background: #ec8d00;
+            border-color: #ec8d00
+        }
+        @media( max-width: 768px) {
+            #fg-2,#fg-3{
+                margin-left: 0;
+            }
+            #fg-1,#fg-2,#fg-3{
+	            width:100%
+            }
+        }
+    </style>
+    <hook name="before_head_end" />
+</head>
+
+<body class="body-white">
+    <include file="public@nav" />
+    <div id="contact_banner">
+        <ul id="home-slider" class="page_banner">
+            <php>
+                $top_slide_id=empty($theme_vars['top_slide'])?1:$theme_vars['top_slide'];
+            </php>
+            <slides id="$top_slide_id">
+                <li>
+                    <a href="{$vo.url|default=''}">
+                        <img src="{:cmf_get_image_url($vo.image)}" alt="">
+                    </a>
+                </li>
+            </slides>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="heading-bottom">
+            <h1 class="text-center">联系我们</h1>
+            <h2 class="text-center-border"></h2>
+            <h3 class="text-center text-color">Contact us</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="contact-info">
+                    <h4>
+                        <i class="fa fa-qq"></i>&nbsp&nbsp客服QQ</h4>
+                    <h4><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin={$theme_vars.qq_cn|default=''}&amp;site=qq&amp;menu=yes">{$theme_vars.qq_cn|default=''}</a></h4>
+                    <h4>
+                        <i class="fa fa-phone"></i>&nbsp&nbsp电话</h4>
+                    <h4>{$theme_vars.phone_cn|default=''}</h4>
+
+                    <h4 id="mar-h1">
+                        <i class="fa fa-envelope"></i>&nbsp&nbsp邮箱</h4>
+                    <h4>{$theme_vars.email|default=''}</h4>
+
+                    <h4 id="mar-h2">
+                        <i class="fa fa-map-marker"></i>&nbsp&nbsp地址</h4>
+                    <h4 id="mar-h3">{$theme_vars.address_cn|default=''}</h4>
+                    <div>
+                        <img src="__TMPL__/public/assets/images/qr_dyzj1.png">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class=" slice no-padding">
+                    <div id="mapCanvas" class="map-canvas no-margin" style="height: 483px;">
+                        <php>
+                            $company_location=empty($theme_vars['company_location'])?'121.449222,31.193348':$theme_vars['company_location']; $company_location=explode(',',$company_location);
+                            $company_location_lng=$company_location[0]; $company_location_lat=$company_location[1];
+                        </php>
+                        <script type="text/javascript">
+                            var map = new BMap.Map("mapCanvas"); // 创建Map实例
+                            var point = new BMap.Point("{$company_location_lng}", "{$company_location_lat}"); // 创建点坐标
+                            map.centerAndZoom(point, 15); // 初始化地图,设置中心点坐标和地图级别。
+                            //map.enableScrollWheelZoom(); //启用滚轮放大缩小
+                            //添加缩放控件
+                            map.addControl(new BMap.NavigationControl());
+                            map.addControl(new BMap.ScaleControl());
+                            map.addControl(new BMap.OverviewMapControl());
+
+                            var marker = new BMap.Marker(point); // 创建标注
+                            map.addOverlay(marker); // 将标注添加到地图中
+                            var infoWindow = new BMap.InfoWindow("{$theme_vars.baidu_map_info_window_text|htmlspecialchars_decode|default=''}"); // 创建信息窗口对象
+                            marker.openInfoWindow(infoWindow);
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="foot">
+        <include file="public@footer" />
+    </section>
+    <include file="public@scripts" />
+    <hook name="before_body_end" />
+</body>
+
+</html>

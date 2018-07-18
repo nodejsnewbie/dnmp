@@ -1,0 +1,47 @@
+
+<!-- Footer ================================================== -->
+<div id="footer">
+    <nav>
+        <a href="index.php">首页</a>
+        <em>|</em>
+        <a href="/About-us.html">关于我们</a>
+        <em>|</em>
+        <a href="/Company-news">公司动态</a>
+        <em>|</em>
+        <a href="/Contact-us.html">联系我们</a>
+    </nav>
+    <hook name="footer_start"/>
+    <div class="links">
+        <links>
+            <a href="{$vo.url|default=''}" target="{$vo.target|default=''}">{$vo.name|default=''}</a>&nbsp;
+        </links>
+
+    </div>
+    <p>
+       <p>©2018 nndyzj.com 豆芽之家版权所有</p>
+        <notempty name="site_info.site_icp">
+            <a href="http://www.miitbeian.gov.cn/" target="_blank">{$site_info.site_icp}</a>
+            <else/>
+            请在后台设置"网站信息"设置"ICP备"
+        </notempty>
+        <notempty name="site_info.site_gwa">
+            <img src="__TMPL__/public/assets/images/ghs.png">
+            <a href="http://beian.gov.cn/" target="_blank">{$site_info.site_gwa}</a>
+            <else/>
+            请在后台设置"网站信息"设置"公网安备"
+        </notempty>
+
+
+    </p>
+</div>
+<div class="bottom_tools">
+<a id="qr">
+    <i class="fa fa-wechat"><div class="qr_img" id="qr_imgs"></div></i>
+</a>
+<a id="phone">
+    <i class="fa fa-mobile"><div class="qr_img" id="phone_imgs"></div></i>
+</a>
+<a id="backtotop">
+    <i class="fa fa-arrow-up"></i>
+</a>
+</div>

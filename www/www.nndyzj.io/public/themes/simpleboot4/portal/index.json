@@ -1,0 +1,109 @@
+{
+    "name": "首页",
+    "action": "portal/Index/index",
+    "description": "首页模板文件",
+    "order": 5.0,
+    "more": {
+        "vars": {
+            "top_slide": {
+                "title": "顶部幻灯片",
+                "value": "",
+                "type": "text",
+                "dataSource": {
+                    "api": "admin/Slide/index",
+                    "multi": false
+                },
+                "placeholder": "请选择顶部幻灯片",
+                "tip": "顶部幻灯片",
+                "rule": {
+                    "require": true
+                }
+            }
+        },
+        "widgets": {
+            "features": {
+                "title": "联系我们",
+                "display": "1",
+                "vars": {
+                    "features": {
+                        "title": "内容",
+                        "value": [
+                            {
+                                "title": "",
+                                "icon": "",
+                                "content": ""
+                            },
+                            {
+                                "title": "",
+                                "icon": "",
+                                "content": ""
+                            },
+                            {
+                                "title": "",
+                                "icon": "",
+                                "content": ""
+                            },
+                            {
+                                "title": "",
+                                "icon": "",
+                                "content": ""
+                            },
+                            {
+                                "title": "",
+                                "icon": "",
+                                "content": ""
+                            },
+                            {
+                                "title": "",
+                                "icon": "",
+                                "content": ""
+                            }
+                        ],
+                        "type": "array",
+                        "item": {
+                            "title": {
+                                "title": "标题",
+                                "value": "",
+                                "type": "text",
+                                "rule": {
+                                    "require": true
+                                }
+                            },
+                            "icon": {
+                                "title": "图标",
+                                "value": "",
+                                "type": "text"
+                            },
+                            "content": {
+                                "title": "描述",
+                                "value": "",
+                                "type": "textarea"
+                            }
+                        },
+                        "tip": ""
+                    }
+                }
+            },
+            "last_news": {
+                "title": "最新资讯",
+                "display": "1",
+                "vars": {
+                    "last_news_category_id": {
+                        "title": "文章分类ID",
+                        "value": "",
+                        "type": "text",
+                        "dataSource": {
+                            "api": "portal/Category/index",
+                            "multi": true
+                        },
+                        "placeholder": "请选择分类",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

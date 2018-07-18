@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{$page.post_title}</title>
+    <meta name="keywords" content="{$page.post_keywords}"/>
+    <meta name="description" content="{$page.post_excerpt}">
+    <include file="public@head"/>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <style>
+        .body-white{
+            width: 100%;
+            height: 100%;
+            overflow: hidden
+        }
+        .body-white .tc-box{
+            text-align: left;
+            border: none;
+            overflow: hidden;
+        }
+        .body-white .tc-box h2{
+            background: #ff9800;
+            padding:10px;
+            width: 250px;
+            box-shadow: 0 20px 40px -10px #f2e6c2;
+            transition: .2s;
+            color: #fff;
+            border-radius: 6px;
+        }
+         #article_content{
+            margin-top: 50px;
+            margin-left: 100px;
+         }
+         #article_content img{
+            margin: 0 15px 30px !important;
+         }
+         body{
+             padding: 0
+         }
+    </style>
+    <hook name="before_head_end"/>
+</head>
+<body class="body-white">
+    <div class="tc-box article-box">
+        <h2>{$page.post_title|default=''}</h2>
+        <div id="article_content">
+            {$page.post_content|default=''}
+        </div>
+    
+        <php>
+            $comment_hook_param=[ 'post_id'=>$page['id'], 'post_table'=>'portal_post', 'post_title'=>$page['post_title'] ];
+        </php>
+    
+        <hook name="comment" param="comment_hook_param" />
+    </div>
+<include file="public@scripts"/>
+<hook name="before_body_end"/>
+</body>
+</html>
