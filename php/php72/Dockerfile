@@ -1,5 +1,6 @@
 FROM php:7.2-fpm
-
+LABEL name=php7.2-fpm-xdebug \
+      version="0.0.1" 
 COPY ./sources.list.stretch /etc/apt/sources.list
 
 # Extensions: ctype, dom, fileinfo, ftp, hash, iconv, json, pdo, pdo_sqlite, session,
@@ -45,7 +46,8 @@ RUN apt-get update \
     && docker-php-ext-install sysvmsg \
     && docker-php-ext-install sysvsem \
     && docker-php-ext-install sysvshm \
-    && docker-php-ext-install opcache
+    && docker-php-ext-install opcache \ 
+    && apt-get clean
     #&& docker-php-ext-install pdo_firebird \
     #&& docker-php-ext-install pdo_dblib \
     #&& docker-php-ext-install pdo_oci \
@@ -101,3 +103,6 @@ RUN apt-get update \
 
 # Composer
 #RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer \
+EXPOSE 9000
+EXPOSE 9001
+CMD  ["php-fpm"]
