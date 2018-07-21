@@ -116,17 +116,19 @@ class Token
                 case ScopeEnum::Super:
                     $role = 'admin';
                     break;
-                default: throw  new TokenException();
+                default:
+                    $role = 'guest';
+                    break;
             }
-            $result=[
-                'role'=>[$role],
-                'introduction'=>'',
-                'token'=>'',
-                'name'=>'',
-                'uid'=>$uid
+            $result = [
+                'role' => [$role],
+                'introduction' => '',
+                'token' => $token,
+                'name' => '',
+                'uid' => $uid,
             ];
         }
-return $result;
+        return $result;
     }
 
     /**

@@ -19,6 +19,7 @@ services:
     container_name: dnmp-php
     expose:
       - "9000"
+      - "9001"
     volumes:
       - ./www/:/var/www/html/:rw
       - ./conf/php.ini:/usr/local/etc/php/php.ini:ro
